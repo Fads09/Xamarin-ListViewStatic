@@ -6,22 +6,22 @@ namespace listview
 {
     public class CustomView : ContentPage
     {
-        public ObservableCollection<VeggieViewModel> veggies { get; set; }
+        public ObservableCollection<Custom> contacts { get; set; }
         public CustomView()
         {
-            veggies = new ObservableCollection<VeggieViewModel>();
+            contacts = new ObservableCollection<Custom>();
             ListView lstView = new ListView();
             lstView.RowHeight = 60;
             this.Title = "Contacts";
             lstView.ItemTemplate = new DataTemplate(typeof(CustomVeggieCell));
-            veggies.Add(new VeggieViewModel { Name = "Andrew Jones", PhoneNumber = "(222)222-2222" });
-            veggies.Add(new VeggieViewModel { Name = "Catherine McMillen", PhoneNumber = "(333)333-3333" });
-            veggies.Add(new VeggieViewModel { Name = "Chris Lesson", PhoneNumber = "(444)444-4444" });
-            veggies.Add(new VeggieViewModel { Name = "David Allison", PhoneNumber = "(555)555-5555" });
-            veggies.Add(new VeggieViewModel { Name = "Emanuel Garcia", PhoneNumber = "(666)666-6666" });
-            veggies.Add(new VeggieViewModel { Name = "Frank Green", PhoneNumber = "(777)777-7777" });
+            contacts.Add(new Custom { Name = "Andrew Jones", PhoneNumber = "(222)222-2222" });
+            contacts.Add(new Custom { Name = "Catherine McMillen", PhoneNumber = "(333)333-3333" });
+            contacts.Add(new Custom { Name = "Chris Lesson", PhoneNumber = "(444)444-4444" });
+            contacts.Add(new Custom { Name = "David Allison", PhoneNumber = "(555)555-5555" });
+            contacts.Add(new Custom { Name = "Emanuel Garcia", PhoneNumber = "(666)666-6666" });
+            contacts.Add(new Custom { Name = "Frank Green", PhoneNumber = "(777)777-7777" });
 
-            lstView.ItemsSource = veggies;
+            lstView.ItemsSource = contacts;
             Content = lstView;
         }
 

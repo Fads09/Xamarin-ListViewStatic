@@ -1,6 +1,6 @@
 ﻿namespace listview
 {
-    public class VeggieViewModel
+    public class Custom
     {
         public string Name { get; set; }
 
