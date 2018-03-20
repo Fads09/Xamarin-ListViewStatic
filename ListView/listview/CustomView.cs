@@ -13,7 +13,7 @@ namespace listview
             ListView lstView = new ListView();
             lstView.RowHeight = 60;
             this.Title = "Contacts";
-            lstView.ItemTemplate = new DataTemplate(typeof(CustomVeggieCell));
+            lstView.ItemTemplate = new DataTemplate(typeof(CustomContactsCell));
             contacts.Add(new Custom { Name = "Andrew Jones", PhoneNumber = "(222)222-2222" });
             contacts.Add(new Custom { Name = "Catherine McMillen", PhoneNumber = "(333)333-3333" });
             contacts.Add(new Custom { Name = "Chris Lesson", PhoneNumber = "(444)444-4444" });
@@ -25,9 +25,9 @@ namespace listview
             Content = lstView;
         }
 
-        public class CustomVeggieCell : ViewCell
+        public class CustomContactsCell : ViewCell
         {
-            public CustomVeggieCell()
+            public CustomContactsCell()
             {
                 //instantiate each of our views
                 var PhoneNumber = new Label();
