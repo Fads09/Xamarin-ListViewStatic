@@ -1,73 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace listview
 {
-    public class imageView : ViewCell
+    public class ImageView : ContentPage
     {
-        public imageView()
+        public ObservableCollection<Images> images { get; set; }
+        public ImageView()
         {
-            var image = new Image
-            {
-                Source = ImageSource.FromFile("monkey.jpg"),
-                HeightRequest = 50,
-            };
+            images = new ObservableCollection<Images>();
+            ListView lstView = new ListView();
+            lstView.RowHeight = 100;
+            this.Title = "Image Cells";
+            lstView.ItemTemplate = new DataTemplate(typeof(ImageViewCell));
+            images.Add(new Images { Image = "image2.jpg" });
+            images.Add(new Images { Image = "monkey.jpg" });
+            images.Add(new Images { Image = "monky2.jpg" });
+            images.Add(new Images { Image = "cat.jpg" });
+            images.Add(new Images { Image = "dog.jpg" });
+            images.Add(new Images { Image = "owl.jpg" });
 
-            var image1 = new Image
-            {
-                Source = ImageSource.FromFile("image2.jpg"),
-                HeightRequest = 50,
-            };
-            var image2 = new Image
-            {
-                Source = ImageSource.FromFile("monky2.jpg"),
-                HeightRequest = 50,
-            };
+            lstView.ItemsSource = images;
+            Content = lstView;
+        }
 
-  
+        public class ImageViewCell : ViewCell
+        {
+            public ImageViewCell()
+            {
 
-            var stackLayout = new StackLayout
-            {
-                Padding = new Thickness(20, 5, 5, 5),
-                Orientation = StackOrientation.Vertical,
-                Children = {
-                    image,
-                    new Label { Text = "", VerticalOptions = LayoutOptions.Center }
-                }
-            };
-            var stackLayout1 = new StackLayout
-            {
-                Padding = new Thickness(20, 5, 5, 5),
-                Orientation = StackOrientation.Vertical,
-                Children = {
-                   image1, 
-                    new Label { Text = "", VerticalOptions = LayoutOptions.Center }
-                }
-            };
-            var stackLayout2 = new StackLayout
-            {
-                Padding = new Thickness(20, 5, 5, 5),
-                Orientation = StackOrientation.Vertical,
-                Children = {
-                   image2,
-                    new Label { Text = "", VerticalOptions = LayoutOptions.Center }
-                }
-            };
+                var image = new Image();
+                var nameLabel = new Label();
 
-            var stack = new StackLayout
-            {
-                Padding = new Thickness(20, 5, 5, 5),
-                Orientation = StackOrientation.Vertical,
-                Children = {
-                    stackLayout, stackLayout1, stackLayout2
-                }
-            };
-         
 
-            View = stack;
+                var horizontalLayout = new StackLayout();
+
+
+                nameLabel.SetBinding(Label.TextProperty, new Binding("Name"));
+                image.SetBinding(Image.SourceProperty, new Binding("Image"));
+                horizontalLayout.Orientation = StackOrientation.Horizontal;
+                horizontalLayout.HorizontalOptions = LayoutOptions.Center;
+                image.HorizontalOptions = LayoutOptions.End;
+                nameLabel.FontSize = 20;
+                horizontalLayout.Children.Add(nameLabel);
+                horizontalLayout.Children.Add(image);
+
+
+                View = horizontalLayout;
+            }
         }
     }
-
 }
+

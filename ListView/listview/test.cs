@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace listview
 {
-    public class test : ContentPage
+    public class Test : ContentPage
     {
-        public test()
+        public Test()
         {
             var listView = new ListView();
 
@@ -30,7 +30,7 @@ namespace listview
             };
             listView.ItemTemplate = new DataTemplate(typeof(view));
 
-           
+
             Padding = new Thickness(0, 20, 0, 0);
             Content = listView;
         }

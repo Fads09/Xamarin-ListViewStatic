@@ -6,43 +6,52 @@ namespace listview
 {
     public class CustomView : ContentPage
     {
-        public ObservableCollection<Custom> custom { get; set; }
+        public ObservableCollection<VeggieViewModel> veggies { get; set; }
         public CustomView()
         {
-            custom = new ObservableCollection<Custom>();
+            veggies = new ObservableCollection<VeggieViewModel>();
             ListView lstView = new ListView();
-            lstView.RowHeight = 100;
-            this.Title = "Custom Cells";
-            lstView.ItemTemplate = new DataTemplate(typeof(CustomViewCell));
-            custom.Add(new Custom{ Name = "Monkey1", Image = "image2.jpg" });
-            custom.Add(new Custom { Name = "Monkey2", Image = "monkey.jpg" });
-            custom.Add(new Custom { Name = "Monkey3", Image = "monky2.jpg" });
-            lstView.ItemsSource = custom;
+            lstView.RowHeight = 60;
+            this.Title = "Contacts";
+            lstView.ItemTemplate = new DataTemplate(typeof(CustomVeggieCell));
+            veggies.Add(new VeggieViewModel { Name = "Andrew Jones", PhoneNumber = "(222)222-2222" });
+            veggies.Add(new VeggieViewModel { Name = "Catherine McMillen", PhoneNumber = "(333)333-3333" });
+            veggies.Add(new VeggieViewModel { Name = "Chris Lesson", PhoneNumber = "(444)444-4444" });
+            veggies.Add(new VeggieViewModel { Name = "David Allison", PhoneNumber = "(555)555-5555" });
+            veggies.Add(new VeggieViewModel { Name = "Emanuel Garcia", PhoneNumber = "(666)666-6666" });
+            veggies.Add(new VeggieViewModel { Name = "Frank Green", PhoneNumber = "(777)777-7777" });
+
+            lstView.ItemsSource = veggies;
             Content = lstView;
         }
 
-        public class CustomViewCell : ViewCell
+        public class CustomVeggieCell : ViewCell
         {
-            public CustomViewCell()
+            public CustomVeggieCell()
             {
-                
-                var image = new Image();
+                //instantiate each of our views
+                var PhoneNumber = new Label();
                 var nameLabel = new Label();
-               
-               
-                var horizontalLayout = new StackLayout();
+              
+                var verticaLayout = new StackLayout();
+                var horizontalLayout = new StackLayout() {  };
 
-           
+                //set bindings
                 nameLabel.SetBinding(Label.TextProperty, new Binding("Name"));
-                image.SetBinding(Image.SourceProperty, new Binding("Image"));
+                PhoneNumber.SetBinding(Label.TextProperty, new Binding("PhoneNumber"));
+
+                //Set properties for desired design
                 horizontalLayout.Orientation = StackOrientation.Horizontal;
                 horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-                image.HorizontalOptions = LayoutOptions.End;
                 nameLabel.FontSize = 20;
-                horizontalLayout.Children.Add(nameLabel);
-                horizontalLayout.Children.Add(image);
+                PhoneNumber.FontSize = 18;
 
-           
+                //add views to the view hierarchy
+                verticaLayout.Children.Add(nameLabel);
+                verticaLayout.Children.Add(PhoneNumber);
+                horizontalLayout.Children.Add(verticaLayout);
+
+                // add to parent view
                 View = horizontalLayout;
             }
         }

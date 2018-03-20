@@ -28,12 +28,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="listview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs" />
-    <Compile Include="imageView.cs" />
     <Compile Include="CustomView.cs" />
     <Compile Include="Custom.cs" />
+    <Compile Include="Images.cs" />
+    <Compile Include="ImageView.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="LstView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

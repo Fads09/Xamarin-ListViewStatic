@@ -11,8 +11,8 @@ namespace listview
            
 
             var tabsCs = new TabbedPage { Title = "ListView" };
-            tabsCs.Children.Add(new test { Title = "Basic", Icon = "" });
-            //tabsCs.Children.Add(new imageView { Title = "Image", Icon = "" });
+            tabsCs.Children.Add(new Test { Title = "Basic", Icon = "" });
+            tabsCs.Children.Add(new ImageView { Title = "Image", Icon = "" });
             tabsCs.Children.Add(new CustomView { Title = "Custom", Icon = "" });
             MainPage = tabsCs;
 

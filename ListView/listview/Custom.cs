@@ -1,8 +1,9 @@
 ﻿namespace listview
 {
-    public class Custom
+    public class VeggieViewModel
     {
         public string Name { get; set; }
-        public string Image { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "listview.iOS", "iOS\listvie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "listview.Droid", "Droid\listview.Droid.csproj", "{0518B2B5-E4E4-4716-8547-B06B0D0521ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4854493A-8412-4217-A27E-8043C1EB6975}"
+	ProjectSection(SolutionItems) = preProject
+		listview.sln = listview.sln
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
